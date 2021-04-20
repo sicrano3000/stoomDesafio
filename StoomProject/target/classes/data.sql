@@ -1,0 +1,2 @@
+INSERT INTO ENDERECO(rua, numero, complemento, bairro, cidade, estado, pais, cep) VALUES('Rua Manoel Serrão', 561, 'casa 2', 'Antonina', 'São Gonçalo', 'Rio de Janeiro', 'Brasil', '24455025');
+INSERT INTO ENDERECO(rua, numero, complemento, bairro, cidade, estado, pais, cep) VALUES('Rua Augusto Rush', 45, 'bloco 17 ap 1002', 'Colubandê', 'São Gonçalo', 'Rio de Janeiro', 'Brasil', '24451650');
