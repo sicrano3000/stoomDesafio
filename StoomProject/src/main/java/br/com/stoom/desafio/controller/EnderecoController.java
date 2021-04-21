@@ -37,6 +37,19 @@ public class EnderecoController {
 	@GetMapping
 	public List<EnderecoResponseDTO> listar() {
 		List<EnderecoEntity> endereco = repository.findAll();
+		
+		endereco.forEach(e -> {
+			GeocodeResult geo = new GeocodeResult();
+			
+			if (e.getLatitude() == null && e.getLongitude() == null) {
+				geo = getLatLon(e.toString());
+				if (geo != null) {
+					e.setLatitude(geo.getResults().get(0).getGeometry().getGeocodeLocation().getLatitude());
+					e.setLongitude(geo.getResults().get(0).getGeometry().getGeocodeLocation().getLongitude());
+				}
+			}
+		});
+		
 		return EnderecoResponseDTO.toListDTO(endereco);
 	}
 	
